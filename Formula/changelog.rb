@@ -5,25 +5,25 @@
 class Changelog < Formula
   desc "A changelog generator which uses GitHub's API for the details"
   homepage "https://github.com/jimschubert/changelog"
-  version "1.1.1"
+  version "1.2.0"
   license "Apache 2.0"
   bottle :unneeded
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.1.1/changelog_1.1.1_Darwin_x86_64.tar.gz"
-    sha256 "292b525a211df8993f048361a311c08098fa5691a0ba07762ba25293816289e0"
+    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Darwin_x86_64.tar.gz"
+    sha256 "78b70fb58519610359236589ced161aa58766475811622ef6c440df41bcaec07"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.1.1/changelog_1.1.1_Linux_x86_64.tar.gz"
-    sha256 "5a3509ddb37ae24eb40fee266b72bdf2a94e2e074d464104a3c65f3783a1f772"
+    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Linux_x86_64.tar.gz"
+    sha256 "570ab2edd418283c6b0403743c5e066acdb1911818df53ffb2349480ce24a811"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.1.1/changelog_1.1.1_Linux_armv6.tar.gz"
-    sha256 "e9ccf7fd2d6414dc51e6e817430584eb04542e4b19ce6ee12e187f0a5088c4c9"
+    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Linux_armv6.tar.gz"
+    sha256 "0f2c99aa4da68691163cfb80b0e44ec12e8c3fcd3a10fd12d3397f2d08fb9566"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.1.1/changelog_1.1.1_Linux_arm64.tar.gz"
-    sha256 "cd33a665ab5d265429f9749b2452aade650a2112e2acb0b238eb90215d8a636a"
+    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Linux_arm64.tar.gz"
+    sha256 "d635c0d9210297a2c65ee994411cb9d2fa541e44c235ec5304a8043cfc42fca2"
   end
 
   depends_on "go"
