@@ -5,25 +5,34 @@
 class Changelog < Formula
   desc "A changelog generator which uses GitHub's API for the details"
   homepage "https://github.com/jimschubert/changelog"
-  version "1.2.0"
+  version "1.2.1"
   license "Apache 2.0"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Darwin_x86_64.tar.gz"
-    sha256 "78b70fb58519610359236589ced161aa58766475811622ef6c440df41bcaec07"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/jimschubert/changelog/releases/download/v1.2.1/changelog_1.2.1_Darwin_x86_64.tar.gz"
+      sha256 "219a9d71de38072cb8d988c9a46c176666b8a9d325f9ec8fcea5576455db7deb"
+    end
+
+    depends_on arch: [:x86_64]
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Linux_x86_64.tar.gz"
-    sha256 "570ab2edd418283c6b0403743c5e066acdb1911818df53ffb2349480ce24a811"
-  end
-  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Linux_armv6.tar.gz"
-    sha256 "0f2c99aa4da68691163cfb80b0e44ec12e8c3fcd3a10fd12d3397f2d08fb9566"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/jimschubert/changelog/releases/download/v1.2.0/changelog_1.2.0_Linux_arm64.tar.gz"
-    sha256 "d635c0d9210297a2c65ee994411cb9d2fa541e44c235ec5304a8043cfc42fca2"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/jimschubert/changelog/releases/download/v1.2.1/changelog_1.2.1_Linux_x86_64.tar.gz"
+      sha256 "9286a707b1dee18c25293f6b60b4be99a4410465c229f4cebb52bef54d65c194"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/jimschubert/changelog/releases/download/v1.2.1/changelog_1.2.1_Linux_armv6.tar.gz"
+      sha256 "a86ea0f9f225e5aa9b0c755a8fb8c64c951bbf83e8ccdaa48e111449fa83b0b4"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/jimschubert/changelog/releases/download/v1.2.1/changelog_1.2.1_Linux_arm64.tar.gz"
+      sha256 "b6e530dd5a9fdb64bbfa25ee766b83e2b6d1134a11fd9daf0b7cdc05bab954e1"
+    end
+
+    depends_on arch: [:x86_64, :aarch64, :arm]
   end
 
   depends_on "go"
