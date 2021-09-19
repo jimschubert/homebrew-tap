@@ -5,33 +5,33 @@
 class Docked < Formula
   desc "A Dockerfile linter"
   homepage "https://github.com/jimschubert/docked"
-  version "0.1.0"
+  version "0.2.0"
   license "Apache 2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jimschubert/docked/releases/download/v0.1.0/docked_0.1.0_Darwin_x86_64.tar.gz"
-      sha256 "0cc08cc5c313fbf735c946b45cc7cffb35e8c239f952907564f0e766fd4a2aab"
+      url "https://github.com/jimschubert/docked/releases/download/v0.2.0/docked_0.2.0_Darwin_x86_64.tar.gz"
+      sha256 "269c8e46f8be0df5b0cdc0096fcd9dd7e69eca72a9e861ec0d5d01740d790708"
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jimschubert/docked/releases/download/v0.1.0/docked_0.1.0_Darwin_arm64.tar.gz"
-      sha256 "1d661101b4590a72b2331baf79b2d63642e2137108050655cd326ad9dd098349"
+      url "https://github.com/jimschubert/docked/releases/download/v0.2.0/docked_0.2.0_Darwin_arm64.tar.gz"
+      sha256 "f835a9d035c2a64e03679a58fec40253a18ba9ac019ea764f0f34d654a4bc460"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/jimschubert/docked/releases/download/v0.1.0/docked_0.1.0_Linux_x86_64.tar.gz"
-      sha256 "2dfbfe41995fd2c4bbb777c4663f80dae88310934cb64a860b1bee6fb1c0aea3"
+      url "https://github.com/jimschubert/docked/releases/download/v0.2.0/docked_0.2.0_Linux_x86_64.tar.gz"
+      sha256 "86dbf105854f6395005f45d0c7a0e1842e656884deda7a7b870ac034fadea1bd"
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/jimschubert/docked/releases/download/v0.1.0/docked_0.1.0_Linux_armv6.tar.gz"
-      sha256 "827d0d37d2930ad37fecd021389b015d8a8e8e0eb68294e237583f096c535170"
+      url "https://github.com/jimschubert/docked/releases/download/v0.2.0/docked_0.2.0_Linux_armv6.tar.gz"
+      sha256 "6b925c354d00629f55dd4d50b87bf0b74e2291217770f74134f8193fc19dad9f"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jimschubert/docked/releases/download/v0.1.0/docked_0.1.0_Linux_arm64.tar.gz"
-      sha256 "8f85ea3adf929eaa2f59ed72072e40f8ebd3055e7bc1a6b0689842b2011ba711"
+      url "https://github.com/jimschubert/docked/releases/download/v0.2.0/docked_0.2.0_Linux_arm64.tar.gz"
+      sha256 "2c99f98c621f24f455d416a7e19cd4a57aa2628445c53390d8b7fc78bd37a9e4"
     end
   end
 
