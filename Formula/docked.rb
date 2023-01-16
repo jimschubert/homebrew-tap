@@ -5,21 +5,23 @@
 class Docked < Formula
   desc "A Dockerfile linter"
   homepage "https://github.com/jimschubert/docked"
-  version "0.3.3"
+  version "0.3.6"
   license "Apache 2.0"
 
+  depends_on "go"
+
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/jimschubert/docked/releases/download/v0.3.3/docked_0.3.3_Darwin_x86_64.tar.gz"
-      sha256 "57bcb397aeae33100f796ca7155fb30745f84b055491e5cc39d35946acfc9408"
+    if Hardware::CPU.arm?
+      url "https://github.com/jimschubert/docked/releases/download/v0.3.6/docked_darwin_arm64.tar.gz"
+      sha256 "57834c0c162a043d876b57faf7f2648e5f5024ef4dd795a054a0366964f4690b"
 
       def install
         bin.install "docked"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/jimschubert/docked/releases/download/v0.3.3/docked_0.3.3_Darwin_arm64.tar.gz"
-      sha256 "93a616b39cfdeb2984975ffc1338dae7e117a375aceb4513473a1cbf68a5ac1c"
+    if Hardware::CPU.intel?
+      url "https://github.com/jimschubert/docked/releases/download/v0.3.6/docked_darwin_amd64.tar.gz"
+      sha256 "b45435df0957fd89f86a6e9cc8026ad8e09dd34280fd7cef3dd50c2d84df6b02"
 
       def install
         bin.install "docked"
@@ -29,32 +31,30 @@ class Docked < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/jimschubert/docked/releases/download/v0.3.3/docked_0.3.3_Linux_armv6.tar.gz"
-      sha256 "2a09fe25e677eea4bae59b33f7060210de7c77e124c191132b1e9aadaaeda099"
+      url "https://github.com/jimschubert/docked/releases/download/v0.3.6/docked_linux_armv6.tar.gz"
+      sha256 "454132844b4dc6b5ce0514ee67d912437b91b357e8bac0e2b3f0268f1d310860"
 
       def install
         bin.install "docked"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jimschubert/docked/releases/download/v0.3.3/docked_0.3.3_Linux_arm64.tar.gz"
-      sha256 "14163dc63cb1d97ff69c4b111a78d3bab934395e727cb0393aa22207940e6b2e"
+      url "https://github.com/jimschubert/docked/releases/download/v0.3.6/docked_linux_arm64.tar.gz"
+      sha256 "893a83285f19133a059d1cd977d14c4d4b577b290c7189c42bf3c23c5251d801"
 
       def install
         bin.install "docked"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/jimschubert/docked/releases/download/v0.3.3/docked_0.3.3_Linux_x86_64.tar.gz"
-      sha256 "38d71c881a3f82ccba27f51eb947c7189023104474b77c859631837125c806ad"
+      url "https://github.com/jimschubert/docked/releases/download/v0.3.6/docked_linux_amd64.tar.gz"
+      sha256 "4114a1b098cd9281449e9a024311259e3be6fa75468d585a4692688a3e6623a3"
 
       def install
         bin.install "docked"
       end
     end
   end
-
-  depends_on "go"
 
   test do
     system "#{bin}/docked -v"
